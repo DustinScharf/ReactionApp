@@ -16,6 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _running = false;
   double _timer = 0.0;
   bool _buttonVisible = true;
+  bool _timerVisible = false;
   String _buttonText = "START TEST";
 
   void _switchState() {
@@ -38,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     setState(() {
+      _timerVisible = false;
       _buttonVisible = false;
     });
 
@@ -48,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _buttonText = "NOW CLICK";
       _buttonVisible = true;
+      _timerVisible = true;
     });
   }
 
@@ -61,11 +64,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('Click the button to start the reaction test',
-                style: TextStyle(fontSize: 18)),
+            Visibility(
+              visible: !_running,
+              child: const Text(
+                'Click the button to start the reaction test',
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
             const SizedBox(height: 4),
-            const Text(
-                'After the button changed its color, click it as fast as you can'),
+            Visibility(
+              visible: !_running,
+              child: const Text(
+                  'After the button changed its color, click it as fast as you can'),
+            ),
             const SizedBox(height: 16),
             Visibility(
               visible: _buttonVisible,
@@ -82,9 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
             ),
             const SizedBox(height: 16),
-            Text(
-              '$_timer' "ms",
-              style: Theme.of(context).textTheme.headline4,
+            Visibility(
+              visible: _timerVisible,
+              child: Text(
+                '$_timer' "ms",
+                style: Theme.of(context).textTheme.headline4,
+              ),
             ),
           ],
         ),
