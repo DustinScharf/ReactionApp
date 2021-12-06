@@ -1,3 +1,3 @@
-# Reation App
+# Reaction App
 
-Test you reation speed
+Test you reaction speed
