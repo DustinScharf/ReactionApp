@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 'After the button changed its color, click it as fast as you can'),
             const SizedBox(height: 16),
             TextButton(
-                onPressed: () => {_incrementCounter()},
+                onPressed: () => _incrementCounter(),
                 style: TextButton.styleFrom(
                   padding: const EdgeInsets.all(16.0),
                   primary: Colors.white,
