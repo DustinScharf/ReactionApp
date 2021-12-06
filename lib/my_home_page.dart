@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -12,10 +15,39 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _running = false;
   double _timer = 0.0;
+  bool _buttonVisible = true;
+  String _buttonText = "START TEST";
 
-  void _incrementCounter() {
+  void _switchState() {
+    if (_running) {
+      _running = false;
+
+      setState(() {
+        _buttonText = "START AGAIN";
+      });
+      return;
+    }
+
+    _running = true;
+    Random random = Random();
+    const timeout = Duration(seconds: 3);
+    const ms = Duration(milliseconds: 1);
+    Timer startTimeout([int? milliseconds]) {
+      var duration = milliseconds == null ? timeout : ms * milliseconds;
+      return Timer(duration, handleTimeout);
+    }
+
     setState(() {
-      _running = !_running;
+      _buttonVisible = false;
+    });
+
+    startTimeout(random.nextInt(4000) + 1000);
+  }
+
+  void handleTimeout() {
+    setState(() {
+      _buttonText = "NOW CLICK";
+      _buttonVisible = true;
     });
   }
 
@@ -35,14 +67,20 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
                 'After the button changed its color, click it as fast as you can'),
             const SizedBox(height: 16),
-            TextButton(
-                onPressed: () => _incrementCounter(),
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.all(16.0),
-                  primary: Colors.white,
-                  backgroundColor: Theme.of(context).primaryColor,
-                ),
-                child: const Text("Start reaction test")),
+            Visibility(
+              visible: _buttonVisible,
+              child: TextButton(
+                  onPressed: () => _switchState(),
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.all(32.0),
+                    primary: Colors.white,
+                    backgroundColor: Theme.of(context).primaryColor,
+                  ),
+                  child: Text(
+                    _buttonText,
+                    style: const TextStyle(fontSize: 18.0),
+                  )),
+            ),
             const SizedBox(height: 16),
             Text(
               '$_timer' "ms",
