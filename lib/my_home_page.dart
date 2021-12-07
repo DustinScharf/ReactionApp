@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Visibility(
               visible: !_running,
               child: const Text(
-                'Click the button to start the reaction test',
+                'Click the button to start the test',
                 style: TextStyle(fontSize: 18),
               ),
             ),
@@ -79,12 +79,17 @@ class _MyHomePageState extends State<MyHomePage> {
             Visibility(
               visible: !_running,
               child: const Text(
-                  'After you click the button, the button disappears'),
+                  'After you click the button, the it disappears'),
             ),
             Visibility(
               visible: !_running,
               child: const Text(
-                  'Then, after the button appears again, click it as fast as you can'),
+                  'After the button appears again,'),
+            ),
+            Visibility(
+              visible: !_running,
+              child: const Text(
+                  'click it as fast as you can'),
             ),
             const SizedBox(height: 16),
             Visibility(
