@@ -14,21 +14,25 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool _running = false;
-  double _timer = 0.0;
   bool _buttonVisible = true;
   bool _timerVisible = false;
   String _buttonText = "START TEST";
+
+  Stopwatch _stopwatch = new Stopwatch();
 
   void _switchState() {
     if (_running) {
       _running = false;
 
       setState(() {
+        _stopwatch.stop();
+        _timerVisible = true;
         _buttonText = "START AGAIN";
       });
       return;
     }
 
+    _stopwatch.reset();
     _running = true;
     Random random = Random();
     const timeout = Duration(seconds: 3);
@@ -50,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _buttonText = "NOW CLICK";
       _buttonVisible = true;
-      _timerVisible = true;
+      _stopwatch.start();
     });
   }
 
@@ -75,7 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
             Visibility(
               visible: !_running,
               child: const Text(
-                  'After the button changed its color, click it as fast as you can'),
+                  'After you click the button, the button disappears'),
+            ),
+            Visibility(
+              visible: !_running,
+              child: const Text(
+                  'Then, after the button appears again, click it as fast as you can'),
             ),
             const SizedBox(height: 16),
             Visibility(
@@ -92,11 +101,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: const TextStyle(fontSize: 18.0),
                   )),
             ),
+            Visibility(
+              visible: !_buttonVisible,
+              child: const Icon(
+                Icons.crop_square_sharp,
+                color: Colors.pink,
+                size: 64.0,
+                semanticLabel: "Click here when the button appears",
+              ),
+            ),
             const SizedBox(height: 16),
             Visibility(
               visible: _timerVisible,
               child: Text(
-                '$_timer' "ms",
+                _stopwatch.elapsedMilliseconds.toString() + "ms",
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),
