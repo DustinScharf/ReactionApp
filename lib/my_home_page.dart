@@ -121,11 +121,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {}, // go to highscore menu
-        tooltip: 'Highscores',
-        child: const Icon(Icons.local_fire_department),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {}, // go to highscore menu
+      //   tooltip: 'Highscores',
+      //   child: const Icon(Icons.local_fire_department),
+      // ),
     );
   }
 }
