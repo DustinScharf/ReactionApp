@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Visibility(
               visible: !_running,
               child: const Text(
-                  'After you click the button, the it disappears'),
+                  'After you click the button, it disappears'),
             ),
             Visibility(
               visible: !_running,
