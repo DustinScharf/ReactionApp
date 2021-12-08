@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _timerVisible = false;
   String _buttonText = "START TEST";
 
-  Stopwatch _stopwatch = new Stopwatch();
+  final Stopwatch _stopwatch = new Stopwatch();
 
   void _switchState() {
     if (_running) {
