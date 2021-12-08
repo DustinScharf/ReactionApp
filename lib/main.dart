@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
+      // todo replace with route
       home: const MyHomePage(title: 'Reaction App'),
     );
   }
