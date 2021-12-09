@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _timerVisible = false;
   String _buttonText = "START TEST";
 
-  // creates a tier o show the reaction time
+  // creates a timer show the reaction time
   final Stopwatch _stopwatch = new Stopwatch();
 
   void _switchState() {
