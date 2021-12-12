@@ -78,18 +78,15 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 4),
             Visibility(
               visible: !_running,
-              child: const Text(
-                  'After you click the button, it disappears'),
+              child: const Text('After you click the button, it disappears'),
             ),
             Visibility(
               visible: !_running,
-              child: const Text(
-                  'After the button appears again,'),
+              child: const Text('After the button appears again,'),
             ),
             Visibility(
               visible: !_running,
-              child: const Text(
-                  'click it as fast as you can'),
+              child: const Text('click it as fast as you can'),
             ),
             const SizedBox(height: 16),
             Visibility(
@@ -126,11 +123,14 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {}, // go to highscore menu
-      //   tooltip: 'Highscores',
-      //   child: const Icon(Icons.local_fire_department),
-      // ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).pushNamed(
+          "/second",
+          arguments: "Hello",
+        ), // go to highscore menu
+        tooltip: 'Highscores',
+        child: const Icon(Icons.local_fire_department),
+      ),
     );
   }
 }

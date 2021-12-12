@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reation_app/route_generator.dart';
 import './my_home_page.dart';
 
 void main() {
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
-      // todo replace with route
-      home: const MyHomePage(title: 'Reaction App'),
+      initialRoute: "/",
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
