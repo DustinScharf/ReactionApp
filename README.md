@@ -1,3 +1,3 @@
 # Reaction App
 
-Test you reaction speed
+Test you reaction speed online
