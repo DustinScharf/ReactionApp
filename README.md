@@ -4,4 +4,4 @@
 
 _*loads some seconds initially_  
 
-A Test Project
+A Flutter Test Project
