@@ -4,4 +4,4 @@
 
 _*loads some seconds initially_  
 
-Only A Flutter Test Project
+A project for learning purpose
