@@ -4,4 +4,4 @@
 
 _*loads some seconds initially_  
 
-A project for learning purpose
+A project for learning purpose (not only)
