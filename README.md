@@ -4,4 +4,4 @@
 
 _*loads some seconds initially_  
 
-A project for (but not limited to) learning flutter 
+A project for (but not limited to) learning flutter
